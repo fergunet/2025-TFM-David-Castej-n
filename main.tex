@@ -5,36 +5,60 @@
 % License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
 \documentclass[11pt, a4paper]{book}
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+% PAQUETES ------------------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
-\usepackage[spanish, es-tabla]{babel} % Selecciona el español para palabras introducidas automáticamente, p.ej. "septiembre" en la fecha y especifica que se use la palabra Tabla en vez de Cuadro
+% Selecciona el español para palabras introducidas automáticamente, p.ej. "septiembre" en la fecha y especifica que se use la palabra Tabla en vez de Cuadro
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% Manejo de símbolos de cita múltiples
+\usepackage{csquotes}
+% Figuras e imágenes
+\usepackage{graphics, graphicx, float}
+% Permite dar estilo a los subtítulos de las figuras (leyendas)
+\usepackage{caption}
+% Permite sub-leyendas en sub-figuras (figuras dentro de figuras)
+\usepackage{subcaption}
+% Permite múltiples filas en tablas
+\usepackage{multirow}
+% Elimina numeración de paginas en blanco
+\usepackage{emptypage}
+% Permite continuar con la numeración entre listas distintas
+\usepackage{enumitem}
+% Introduce la bibliografía en el índice
+\usepackage[nottoc]{tocbibind}
+% Permite continuar con la numeración entre listas distintas
+\usepackage{fourier} % Use the Adobe Utopia font for the document
 \usepackage{url} % ,href} %para incluir URLs e hipervínculos dentro del texto (aunque hay que instalar href)
-\usepackage{graphics, graphicx, float} %para incluir imágenes y colocarlas
-\usepackage[gen]{eurosym} %para incluir el símbolo del euro
+% Para incluir el símbolo del euro
+\usepackage[gen]{eurosym} 
 \usepackage{cite} %para incluir citas del archivo <nombre>.bib
 \usepackage{enumerate}
-\usepackage{hyperref}
-\usepackage{graphicx}
+% Permite añadir comentarios multilinea que no se mostrarán en el PDF final
+\usepackage{comment}
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage{amsmath}
-
 \usepackage[table,xcdraw]{xcolor}
-\hypersetup{
-	colorlinks=true,	% false: boxed links; true: colored links
-	linkcolor=black,	% color of internal links
-	urlcolor=cyan		% color of external links
-}
+% Marca en rojo los elementos pendientes (TO-DOs)
+\newcommand{\todo}[1]{\textcolor{orange}{TODO: #1}}
+% Permite que el contador de footnotes no se reinicie en cada capítulo
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
 
+% ESTILOS DE PAGINA ------------------------------------------------------------------
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{fancyhdr} % Custom headers and footers
+% Modificar encabezamientos y pie de páginas
+\usepackage{fancyhdr}
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead[L]{} % Empty left header
 \fancyhead[C]{} % Empty center header
-\fancyhead[R]{Francisco David Castejón Soto} % My name
+% \fancyhead[R]{Francisco David Castejón Soto} % Nombre del autor en el encabezado derecho
 \fancyfoot[L]{} % Empty left footer
 \fancyfoot[C]{} % Empty center footer
 \fancyfoot[R]{\thepage} % Page numbering for right footer
@@ -52,8 +76,20 @@
 % For code snippets
 \usepackage{minted}
 \usemintedstyle{colorful}
-\usepackage{caption}
+% Control de enlaces hipertexto en el documento. Este paquete debe cargarse el último.
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,	% false: boxed links; true: colored links
+	linkcolor=black,	% color of internal links
+	urlcolor=cyan		% color of external links
+}
 
+% Información del documento ---------------------------------------------------------
+\author{Francisco David Castejón Soto}
+\title{Entrenamiento de una IA mediante aprendizaje por refuerzo para un juego hecho en Unreal Engine}
+\date{\today}
+
+% DOCUMENTO ----------------------------------------------------------------------------
 \begin{document}
 
 % Páginas preliminares sin numeración
@@ -61,6 +97,7 @@
 
 \input{portada/portada}
 \input{prefacios/prefacio}
+\input{prefacios/agradecimientos}
 
 % Índices
 \cleardoublepage
@@ -75,13 +112,22 @@
 % Contenido principal
 \mainmatter
 
-\input{secciones/1_introduccion}
-\input{secciones/2_estado_del_arte}
-\input{secciones/3_propuesta}
-\input{secciones/4_desarrollo}
-\input{secciones/5_experimentos}
-\input{secciones/6_resultados}
-\input{secciones/7_conclusiones}
+\part{Cartas y Bots} \label{part:idea}
+\input{secciones/introduccion}
+\input{secciones/objetivos}
+\input{secciones/antecedentes}
+\input{secciones/recursos}
+\input{secciones/distribucion_temporal}
+
+\part{Sofware y preparación de los experimentos} \label{part:preparacion}
+\input{secciones/algoritmo}
+\input{secciones/software}
+
+\part{Experimentos y resultados} \label{part:resultados}
+\input{secciones/experimentacion}
+\input{secciones/resultados}
+\input{secciones/discusion}
+\input{secciones/conclusiones}
 
 % Material de referencia
 \backmatter
