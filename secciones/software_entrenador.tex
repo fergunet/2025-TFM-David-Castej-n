@@ -1,0 +1,33 @@
+\chapter{Sistema de entrenamiento evolutivo}
+% La parte en Python
+
+\section{Arquitectura general del entrenador}
+% Visión general del sistema. Script en Python que usa Inspyred para orquestar un algoritmo evolutivo
+% Encontrar el conjunto de pesos óptimo para el bot
+% Diagrama de flujo
+
+\section{Comunicación entrenador-imulador}
+% Los subprocesos y las variables de entorno
+% os.environ para pasar los pesos de un individuo al bot en C#
+
+\section{El algoritmo evolutivo con Inspyred}
+% Justificar la elección de Inspyred
+% Describir los componentes de un EA: individuos, población, generación inicial, operadores de variación, evaluación del fitness, selección, etc
+% Explicar los valores por defecto de Inspyred
+
+\section{Paralelización del algoritmo}
+% Uso de multiprocessing para el diccionario y concurrent.futures para el evaluador
+
+\section{Mecanismos de evaluación del fitness}
+
+\subsection{Modo fijo: evaluación contra oponentes estáticos}
+% El individuo juega contra un conjunto predefinido de bots. El fitness es el número de victorias
+% inspyred.ec.evaluators.parallel_evaluation_mp
+\subsection{Modo coevolución: competición interna}
+% Los individuos (padres e hijos) compiten entre sí en un torneo round robin. El fitness es el número de victorias
+% evaluate_coevolution_orchestrator
+\subsection{Modo híbrido: combinando estrategias}
+% Sistema de entrenamiento por segmentos hybrid_schedule_str
+% Gestión de cambios de modo
+\section{El salón de la fama}
+% Mantener un diccionario de oponentes de élite (catastrophic forgetting)
