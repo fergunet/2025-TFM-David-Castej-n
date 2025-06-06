@@ -1,33 +1,45 @@
-\chapter{Sistema de entrenamiento evolutivo}
+\chapter{Sistema de entrenamiento evolutivo} \label{chap:entrenador}
 % La parte en Python
 
-\section{Arquitectura general del entrenador}
+
+\section{Arquitectura general del entrenador} \label{sec:arquitectura_entrenador}
 % Visión general del sistema. Script en Python que usa Inspyred para orquestar un algoritmo evolutivo
 % Encontrar el conjunto de pesos óptimo para el bot
 % Diagrama de flujo
 
-\section{Comunicación entrenador-imulador}
+
+\section{Comunicación entrenador-imulador} \label{sec:comunicacion_entrenador_simulador}
 % Los subprocesos y las variables de entorno
 % os.environ para pasar los pesos de un individuo al bot en C#
 
-\section{El algoritmo evolutivo con Inspyred}
+
+\section{El algoritmo evolutivo con Inspyred} \label{sec:algoritmo_evolutivo_inspyred}
 % Justificar la elección de Inspyred
 % Describir los componentes de un EA: individuos, población, generación inicial, operadores de variación, evaluación del fitness, selección, etc
 % Explicar los valores por defecto de Inspyred
 
-\section{Paralelización del algoritmo}
+
+\section{Paralelización del algoritmo} \label{sec:paralelizacion_algoritmo}
 % Uso de multiprocessing para el diccionario y concurrent.futures para el evaluador
 
-\section{Mecanismos de evaluación del fitness}
 
-\subsection{Modo fijo: evaluación contra oponentes estáticos}
+\section{Mecanismo de evaluación del fitness} \label{sec:mecanismos_evaluacion_fitness}
+% El conteo de victorias como métrica de fitness
+
+\subsection{Modo fijo: evaluación contra oponentes estáticos} \label{sec:modo_fijo_evaluacion}
 % El individuo juega contra un conjunto predefinido de bots. El fitness es el número de victorias
 % inspyred.ec.evaluators.parallel_evaluation_mp
-\subsection{Modo coevolución: competición interna}
+
+
+\subsection{Modo coevolución: competición interna} \label{sec:modo_coevolucion_competicion}
 % Los individuos (padres e hijos) compiten entre sí en un torneo round robin. El fitness es el número de victorias
 % evaluate_coevolution_orchestrator
-\subsection{Modo híbrido: combinando estrategias}
+
+
+\subsection{Modo híbrido: combinando estrategias} \label{sec:modo_hibrido_combinando}
 % Sistema de entrenamiento por segmentos hybrid_schedule_str
 % Gestión de cambios de modo
-\section{El salón de la fama}
+
+
+\section{El salón de la fama} \label{sec:salon_fama}
 % Mantener un diccionario de oponentes de élite (catastrophic forgetting)

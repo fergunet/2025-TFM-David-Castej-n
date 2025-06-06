@@ -1,5 +1,12 @@
-\chapter{Introducción}
+\chapter{Introducción} \label{chap:introduccion}
 
-% Hablar la importancia de la IA en los videojuegos, especialmente en los de estrategia.
-% Introducir brevemente el concepto de algoritmos evolutivos como técnica para entrenar agentes.
+% Hablar la importancia de la IA en los videojuegos, especialmente en los de estrategia
+% Introducir brevemente el concepto de algoritmos evolutivos como técnica para entrenar agentes
 % Concluir presentando el problema que se aborda: entrenar un bot para el juego "Tales of Tribute"
+
+
+La inteligencia artificial (IA) en el contexto de los videojuegos se refiere únicamente a un conjunto de algoritmos y técnicas diseñadas para cumplir una función muy específica dentro del juego. Ejemplos de ello son la IA que ``conduce'' los coches en un juego de carreras, los Pokémon contra los que el jugador se enfrenta en una batalla o el simple movimiento de una línea de píxeles (a modo de pala contrincante) en el videojuego Pong. Esta acepción contrasta con la idea más general de IA, que posee un conjunto de definiciones más amplias y generalistas como ``la máquina que aprende'' o ``el estudio y construcción de sistemas que hacen <<lo correcto>>, en función de su objetivo'' \cite{russell_artificial_2021}.
+
+Independientemente de la definición que se utilice, lo cierto es que un factor clave en el desarrollo de un videojuego es la creación de una IA que resulte entretenida para el jugador. De la misma forma que en un libro o una película es necesaria una trama que plantee un desafío, como la lucha contra el Imperio Galáctico en Star Wars, o un compañero de aventuras que ayude al protagonista, como Sam en El Señor de los Anillos, en un videojuego es necesaria una IA que controle esos elementos que interactúan con el jugador, ya sean enemigos, aliados o incluso el propio entorno. Desde los propios inicios de la industria del videojuego, donde se construían máquinas específicas para ejecutar un juego concreto, como es el caso de Nim en 1948 \cite{redheffer_machine_1948}, hasta los videojuegos modernos, donde se utilizan técnicas de IA más complejas, como el aprendizaje por refuerzo (más en la sección \ref{sec:estado_arte}), la IA ha sido un componente esencial para crear experiencias de juego atractivas y desafiantes.
+
+La intención de este trabajo es la de crear una IA contra la que jugar en un videojuego de estrategia. En concreto, la IA que controla a un agente autónomo (o simplemente ``bot'') en el videojuego de cartas \textit{Tales of Tribute}. Es importante la distinción entre ``juego'' y ``videojuego'', ya que en este caso las cartas no son físicas, sino que únicamente existen en el universo digital del videojuego. Para guiar las decisiones del bot, un algoritmo evolutivo se encarga de ajustar los pesos que se utilizan para calcular la puntuación de cada jugada posible, eligiendo vorazmente la jugada que maximiza dicha puntuación. Así se ha conseguido crear un contrincante que juega de forma competitiva tanto contra el jugador humano como contra otros bots manejados por IAs totalmente diferentes.

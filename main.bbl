@@ -6,4 +6,17 @@ Juan Julián~Merelo Guervós.
 \newblock original-date: 2019-03-19T11:58:46Z.
 \newblock URL: \url{https://github.com/JJ/plantilla-TFG-ETSIIT}.
 
+\bibitem{redheffer_machine_1948}
+Raymond Redheffer.
+\newblock A {Machine} for {Playing} the {Game} {Nim}.
+\newblock {\em The American Mathematical Monthly}, 55(6):343--349, June 1948.
+\newblock Publisher: Taylor \& Francis \_eprint: https://doi.org/10.1080/00029890.1948.11999249.
+\newblock \href {https://doi.org/10.1080/00029890.1948.11999249} {\path{doi:10.1080/00029890.1948.11999249}}.
+
+\bibitem{russell_artificial_2021}
+Stuart Russell and Peter Norvig.
+\newblock {\em Artificial {Intelligence}: {A} {Modern} {Approach}}.
+\newblock Prentice Hall, Hoboken, NJ, 2021.
+\newblock URL: \url{https://aima.cs.berkeley.edu/global-index.html}.
+
 \end{thebibliography}
