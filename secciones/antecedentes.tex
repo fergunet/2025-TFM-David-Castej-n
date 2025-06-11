@@ -1,17 +1,79 @@
-\chapter{Estado del arte} \label{chap:antecedentes}
+\chapter{Antecedentes y estado del arte} \label{chap:antecedentes}
 
-% \todo{Repensar los nombres de + A -}
-
-\section{Inteligencia artificial en videojuegos} \label{sec:ia_videojuegos}
+\section{Inteligencia artificial en videojuegos comerciales} \label{sec:ia_videojuegos}
 % Hablar sobre las técnicas comunes de IA en juegos (máquinas de estados, árboles de comportamiento, MCTS)
 % Qué técnicas se están usando actualmente
-% Video de AI in Games sobre la IA en de las motos en Star Wars: Outlaws
-% Encontrar juego de peleas de espada con Learning Agents
-% IA de los enemigos en The Last of Us: Parte II
+% Metaheurísticas y algoritmos evolutivos en videojuegos
+
+% https://creativecampus.universidadeuropea.com/blog/meshes/
+
+En esta sección se encuentra un breve repaso a las técnicas de inteligencia artificial más utilizadas a lo largo de la historia de los videojuegos, con especial énfasis en las técnicas de metaheurísticas y algoritmos evolutivos. Los propósitos de su utilización no solo abarcan su función más habitual de antagonista o compañero, sino que también abarca otros aspectos como la generación de contenido procedural o la deformación realista de las mallas \footnote{Un ``mesh'', o malla en español, es una estructura tridimensional formada por una colección de vértices, aristas y caras que definen la forma de un objeto 3D dentro de un videojuego. \todo{cita mallas}} de los personajes con animaciones.
+
+\subsection{Funciones hash}
+% https://en.wikipedia.org/wiki/Artificial_intelligence_in_video_games
+
+Una de las técnicas más sencillas y antiguas de inteligencia artificial en videojuegos son las funciones hash. Este tipo de funciones simplemente reciben un conjunto de parámetros como entrada y devuelven un valor o acción a realizar. Dada su simplicidad, generan comportamientos predecibles, pero requieren de pocos recursos para su procesamiento y son fáciles de implementar. Un ejemplo clásico de IA basada en funciones hash es el en juego \textit{Space Invaders} \todo{cita aquí}. 
+
+\subsection{Máquinas de estados finitos}
+% https://gamefromscratch.com/game-programming-concepts-finite-state-machines/
+
+Las máquinas de estados finitos son un modelo de computación conceptual que describe un sistema que solo puede encontrarse en un estado a la vez, y que puede cambiar a uno de sus otros estados como respuesta a ciertos eventos. Este mecanismo se ha utilizado y sigue utilizándose para un gran número de aplicaciones dentro de los videojuegos. Por ejemplo, en el juego \textit{Pac\-man}, la IA de los fantasmas se rije por el estado en el que se encuentran, como "cazando" o "siendo cazados". Otro uso es la gestión de las animaciones de los personajes, donde cada estado corresponde a una posición o movimiento específico de la malla. Al igual que las funciones hash, requieren de pocos recursos para su procesamiento, pero su naturaleza determinista y la posibilidad de entrar en bucles sin salida si no están bien diseñadas, limitan su uso en los títulos más recientes.
+
+\subsection{Árboles de comportamiento}
+% https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview
+% https://www.gamedeveloper.com/programming/gdc-2005-proceeding-handling-complexity-in-the-i-halo-2-i-ai
+% Halo 2
+
+Como evolución a las máquinas de estados finitos, surgieron los árboles de comportamiento, permitiendo un mayor grado de complejidad y flexibilidad en la toma de decisiones de los personajes. Los árboles de comportamiento son grafos dirijidos acíclicos, con nodos hoja que representan acciones y varios tipos de control de flujo que determinan el orden de ejecución de estas \todo{cita aquí}. Una de sus características más destacadas es su modularidad, lo que permite reutilizar y combinar comportamientos fácilmente. Un fantastico ejemplo de su uso se expuso en la charla de la ``Game Developers Conference'' de 2005, sobre la IA de \textit{Halo 2}, donde se explica que su capacidad de reutilización de árboles y ser más sencillos de entender para los diseñadores del juego, hizo que los programadores optaran por su uso en lugar de las máquinas de estados finitos \todo{cita aquí}.
+
+
+\subsection{Planificación de acciones orientada a objetivos}
+% https://gdcvault.com/play/1013282/Three-States-and-a-Plan
+En contraste con los árboles de comportamiento, que generan una jerarquía de caminos, cada uno con diferentes acciones, la planificación de acciones orientada a objetivos (GOAP, por sus siglas en inglés) es más parecida a la planificación de rutas, donde se busca el camino más óptimo para alcanzar un objetivo en función del estado del mundo. Cada uno de los pasos que llevan al objetivo tiene una serie de precondiciones que deben cumplirse, a los cuales se les puede asignar un coste. Es tal su similitud con la planificación de rutas, que este tipo de IA suelen utilizar internamente algoritmos de búsqueda como A* para encontrar el camino más óptimo. Una de las mejores implementaciones de este tipo de IA se encuentra en el título de 2005 \textit{F.E.A.R.}, donde los enemigos y aliados utilizan GOAP para ``planificar'' su comportamiento una manera mucho más proactiva que sus predecesores \todo{cita aquí}. Por último, es necesario aclarar que el mencionado algoritmo A* también se utiliza en la búsqueda de caminos tradicional dentro de los videojuegos, es decir, para saber la ruta que debe tomar un objeto por el mapa para llegar a un destino, y no solo en GOAP.
+
+
+\subsection{Aprendizaje por refuerzo y redes neuronales}
+% Star Wars: Outlaws
+% https://gdcvault.com/play/1035556/Game-AI-Summit-No-Brakes
+% https://www.youtube.com/watch?v=I7U1xleVh_g
+
+% Comparar con PID
+% https://www.researchgate.net/publication/347043752_Steering_Control_for_Autonomous_Vehicles_Using_PID_Control_with_Gradient_Descent_Tuning_and_Behavioral_Cloning
+
+% NPCs driving is without doubt one of the weakest aspects of video games, and to no surprise. Both traditional AI and ML both seemed like they each had major flaws, but I had never considered using them together, playing off off each others strengths and weaknesses. 
+
+% https://dev.epicgames.com/documentation/en-us/unreal-engine/ml-deformer-framework-in-unreal-engine
+% https://www.youtube.com/watch?v=aorRfK478RE
+% Unreal Engine Machine Learning Deformer
+
+\todo{reescribir:}
+Un ejemplo del estado del arte de la inteligencia artificial en videojuegos para tareas que no tienen que ver con la toma de decisiones es el de la deformación de mallas. Como ya se ha establecido, la inferencia de valores por parte de modelos pequeños de redes neuronales es realmente rápida en términos de rendimiento. Una compleja tarea que se puede beneficiar de este enfoque es la encargada de decidir como debe ajustarse el cuerpo de un personaje (su malla) y más específicamente sus músculos, a las animaciones que se le aplican. Un término común para referirse a las creaciones digitales que son muy parecidas a la realidad pero que no llegan a parecernos completamente realistas es el de ''valle inquietante'' (de ``Uncanny Valley'' en inglés). Con esto nos referimos a aquellas minúsculas diferencias cuyo reconocimiento explícito por parte del jugador o espectador no es sencillo, pero que nuestro cerebro, acostumbrado a ver la realidad constanmente, detecta como extrañas. Por ejemplo, un personaje que sonríe de oreja a oreja, pero cuyos ojos no se mueven lo más mínimo mientras lo hace. La utilización de modelos de redes neuronales para la deformación de mallas intenta modelar la forma en la que los músculos se mueven y deforman al movernos, precisamente para evitar las situaciones de valle inquietante y, en general, para hacer que las animaciones de los personajes sean más realistas. Recientemente se ha podido ver un ejemplo de este tipo de tecnología en la demo técnica del \textit{Unreal Fest 2025}, donde se mostraba como se modelaba internamente la musculatura de un caballo para que sus animaciones de movimiento fueran mucho mejores.
+
+\subsection{Unión de varias técnicas}
+% The Last of Us: Parte II
+% El éxito de la IA en The Last of Us Part II no parece atribuible a una única técnica revolucionaria, sino más bien a la integración sofisticada y pulida de múltiples sistemas que trabajan en concierto. Esto probablemente incluye algoritmos avanzados de búsqueda de caminos (pathfinding) que permiten a los NPCs navegar por entornos complejos, sistemas de percepción sensorial (vista, oído, e incluso olfato para los perros), una lógica de comportamiento robusta (posiblemente basada en Árboles de Comportamiento o Máquinas de Estados Finitos muy elaboradas), y sistemas dedicados a la comunicación y la toma de decisiones grupales. Esta arquitectura de IA parece estar profundamente entrelazada con el diseño de niveles y la coreografía de los encuentros, creando la ilusión de una inteligencia coordinada y altamente reactiva. La variedad de comportamientos observados, desde las tácticas organizadas de los humanos hasta los patrones más erráticos de los infectados y la mecánica única de los perros rastreadores , apunta a una arquitectura de IA compleja con múltiples capas y módulos especializados, en lugar de una solución monolítica.
+
+% Alien: Isolation
+% Árbol de comportamiento + Director de IA
+
+\subsection{Modelos de lenguaje grande}
+
+% Añadido por completitud, pero no es una técnología existente en videojuegos comerciales dada su reciente aparición e inestabilidad.
 
 \section{Metaheurísticas en videojuegos} \label{sec:estado_arte}
+\subsection{Generación de contenido procedural}
+
+
+\subsection{El desafío de las metaheurísticas en videojuegos comerciales}
 
 
 \section{Algoritmos evolutivos en juegos de cartas} \label{sec:trabajos_relacionados}
-% Paper de Pablo y TFG de los ganadores de la competición de IA de Tales of Tribute.
-% Comparar sus enfoques al mio
+% Paper de Pablo y TFG de los ganadores de la competición de IA de Tales of Tribute. Comparar sus enfoques al mio
+
+
+\subsection{Optimización de agentes de Hearthstone mediante un algoritmo evolutivo}
+
+
+\subsection{Desarrollo de un agente para el concurso de IA Tales of Tribute}
+% Comprobar si los del MCTS usan algoritmos evolutivos
+\todo{Analizar la estrategia de MCTS de los ganadores de la competición de IA de Tales of Tribute.}
