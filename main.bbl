@@ -1,22 +1,92 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{cd_projekt_red_witcher_2025}
+{CD Projekt Red}.
+\newblock The witcher 4 unreal engine 5 tech demo 4k {\textbar} state of unreal {\textbar} unreal fest orlando.
+\newblock URL: \url{https://www.youtube.com/watch?v=aorRfK478RE}.
+
+\bibitem{universidad_europea_que_2025}
+Universidad Europea.
+\newblock ¿qué es mesh en el desarrollo de videojuegos? {\textbar} blog {CC}.
+\newblock Section: Blog.
+\newblock URL: \url{https://creativecampus.universidadeuropea.com/blog/meshes/}.
+
+\bibitem{epic_games_behavior_2025}
+Epic Games.
+\newblock Behavior tree in unreal engine - overview {\textbar} unreal engine 5.6 documentation {\textbar} epic developer community.
+\newblock URL: \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview}.
+
+\bibitem{epic_games_ml_2025}
+Epic Games.
+\newblock {ML} deformer framework in unreal engine {\textbar} unreal engine 5.6 documentation {\textbar} epic developer community.
+\newblock URL: \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/ml-deformer-framework-in-unreal-engine}.
+
+\bibitem{gaudreau_game_2025}
+Colin Gaudreau and Andreas Lasses.
+\newblock Game {AI} summit: No brakes! machine learning vehicles in 'star wars outlaws'.
+\newblock URL: \url{https://gdcvault.com/play/1035556/Game-AI-Summit-No-Brakes}.
+
+\bibitem{ghasemi_comprehensive_2025}
+Majid Ghasemi, Amir Hossein, and Dariush Ebrahimi.
+\newblock Comprehensive survey of reinforcement learning: From algorithms to practical challenges.
+\newblock URL: \url{https://arxiv.org/html/2411.18892v2#bib.bib84}.
 
 \bibitem{guervos_jjplantilla-tfg-etsiit_2024}
 Juan Julián~Merelo Guervós.
-\newblock {JJ}/plantilla-{TFG}-{ETSIIT}, September 2024.
+\newblock {JJ}/plantilla-{TFG}-{ETSIIT}.
 \newblock original-date: 2019-03-19T11:58:46Z.
 \newblock URL: \url{https://github.com/JJ/plantilla-TFG-ETSIIT}.
 
+\bibitem{isla_managing_2005}
+Damian Isla.
+\newblock Managing complexity in the halo 2 {AI} system.
+\newblock URL: \url{https://www.gdcvault.com/play/1020270/Managing-Complexity-in-the-Halo}.
+
+\bibitem{jeff_gdc_2006}
+Orkin Jeff.
+\newblock {GDC} vault - three states and a plan: The {AI} of f.e.a.r.
+\newblock URL: \url{https://gdcvault.com/play/1013282/Three-States-and-a-Plan}.
+
+\bibitem{mike_game_2016}
+Mike.
+\newblock Game programming concepts–finite state machines.
+\newblock URL: \url{https://gamefromscratch.com/game-programming-concepts-finite-state-machines/}.
+
 \bibitem{redheffer_machine_1948}
 Raymond Redheffer.
-\newblock A {Machine} for {Playing} the {Game} {Nim}.
-\newblock {\em The American Mathematical Monthly}, 55(6):343--349, June 1948.
+\newblock A machine for playing the game nim.
+\newblock 55(6):343--349.
 \newblock Publisher: Taylor \& Francis \_eprint: https://doi.org/10.1080/00029890.1948.11999249.
 \newblock \href {https://doi.org/10.1080/00029890.1948.11999249} {\path{doi:10.1080/00029890.1948.11999249}}.
 
 \bibitem{russell_artificial_2021}
 Stuart Russell and Peter Norvig.
-\newblock {\em Artificial {Intelligence}: {A} {Modern} {Approach}}.
-\newblock Prentice Hall, Hoboken, NJ, 2021.
+\newblock {\em Artificial Intelligence: A Modern Approach}.
+\newblock Prentice Hall.
 \newblock URL: \url{https://aima.cs.berkeley.edu/global-index.html}.
+
+\bibitem{torres-jimenez_applications_2014}
+Jose Torres-Jiménez and Juan Pavón.
+\newblock Applications of metaheuristics in real-life problems.
+\newblock 2(4):175--176.
+\newblock \href {https://doi.org/10.1007/s13748-014-0051-8} {\path{doi:10.1007/s13748-014-0051-8}}.
+
+\bibitem{wikipedia_artificial_2025}
+Wikipedia.
+\newblock Artificial intelligence in video games.
+\newblock Page Version {ID}: 1292216335.
+\newblock URL: \url{https://en.wikipedia.org/w/index.php?title=Artificial_intelligence_in_video_games&oldid=1292216335}.
+
+\bibitem{wikipedia_diseno_2025}
+Wikipedia.
+\newblock Diseño de juegos.
+\newblock Page Version {ID}: 167396849.
+\newblock URL: \url{https://es.wikipedia.org/w/index.php?title=Dise%C3%B1o_de_juegos&oldid=167396849}.
+
+\bibitem{wolpert_no_1997}
+D.H. Wolpert and W.G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock 1(1):67--82.
+\newblock URL: \url{https://ieeexplore.ieee.org/document/585893}, \href {https://doi.org/10.1109/4235.585893} {\path{doi:10.1109/4235.585893}}.
 
 \end{thebibliography}
