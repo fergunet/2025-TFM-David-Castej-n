@@ -1,24 +1,92 @@
 \chapter{Planificación del proyecto} \label{chap:planificacion}
 
+En este último capítulo de la primera parte del trabajo, se detallan ciertos aspectos relacionados con los recursos utilizados, así como la metodología y cronograma seguidos durante el desarrollo del proyecto.
 
 \section{Recursos utilizados} \label{sec:recursos_utilizados}
 
-
 \subsection{Recursos software} \label{sec:recursos_software}
-% Lenguajes (C#, Python), Librerías (Inspyred, Pydantic, Pandas, Matplotlib, etc)
-% VS Code
-% Git
-% LaTeX
-% etc
 
+El proyecto se puede dividir en tres partes principales: el desarrollo del bot en C\#, el ajuste de los pesos en Python y la redacción del informe en LaTeX. Afortunadamente, existe una herramienta de código abierto y en constante desarrollo en la que se pueden realizar todas estas tareas: Visual Studio Code (VSCode). Este entorno de desarrollo es la navaja suiza que ha estado presente en todo el proceso, permitiendo la edición de código, la gestión de versiones, la redacción del informe en incluso la conexión con interfáz gráfica entre máquinas por SSH. Todo ello gracias a su robusto sistema de extensiones (y la gran comunidad que lo apoya), que permite añadir prácticamente cualquier funcionalidad que se necesite. En el caso de la gestión de versiones, utilizando la integración con Git de VSCode, en todo momento se ha mantenido un repositorio actualizado al día en GitHub, lo que ha permitido la transferencia del progreso entre las diferentes máquinas utilizadas durante el desarrollo.
+
+Por último, destacar la labor de Zotero como software de gestión de referencias bibliográficas, así como el propio Scripts of Tribute, la base sobre la que se ha erguido el resto del código.
 
 \subsection{Recursos hardware} \label{sec:recursos_hardware}
 % Especificaciones de mi PC y el de Pablo
 
+Se han contado con dos ordenadores principales, el primero es el ordenador personal del autor, mientras que el segundo fue propordionado por el director del proyecto para realizar los experimentos. Estas son sus características:
+
+\begin{itemize}
+	\item \textbf{Ordenador personal (Windows 11):}
+	      \begin{itemize}
+		      \item Procesador: AMD Ryzen 7 5800X
+		      \item Memoria RAM: 32 GB DDR5
+		      \item Tarjeta gráfica: NVIDIA GeForce RTX 3070
+	      \end{itemize}
+	\item \textbf{Ordenador de experimentación (Ubuntu 22.04):}
+	      \begin{itemize}
+		      \item Procesador: Intel i9-12900KF
+		      \item Memoria RAM: 128 GB DDR4
+		      \item Tarjeta gráfica: NVIDIA GeForce RTX 4060
+	      \end{itemize}
+\end{itemize}
 
 \section{Metodología de desarrollo} \label{sec:metodologia_desarrollo}
-% Metodología ágil mediante sprints (reuniones con Pablo)
+% Metodología ágil mediante sprints (reuniones con Pablo desde el 12 de noviembre de 2024)
+
+Para el desarrollo de este Trabajo de Fin de Máster se ha seguido una metodología ágil a base de sprints regulares. Desde el 12 de noviembre de 2024, se mantuvieron reuniones de forma constante con el director del proyecto, Pablo García Sánchez, aproximadamente cada 3 semanas. En cada una, primero se procedía a repasar el progreso desde la última reunión, a menudo mostrando en tiempo real las nuevas características o los resultados obtenidos. Sobre esta base, el director proponía mejoras o correcciones a realizar para la próxima ocasión. Luego, entre ambos se decidían los siguientes pasos a seguir, mediante una colaboración constante.
+
+Aunque el principio del proyecto se realizó enteramente en el PC personal del autor, en cuanto se tuvo la posibilidad de ejecutar el script de ajuste de pesos (o ``entrenador''), se comenzó a utilizar el ordenador proporcionado por el director del proyecto. Esto permitió realizar experimentos de forma continuada y sencilla, mientras se seguía trabajando en el código del bot en el PC personal. De esta forma, se pudo mantener un flujo de trabajo fluido y eficiente, generando código funcional de forma regular y obteniendo resultados cada vez más desarrollados continuamente.
 
 
 \section{Distribución temporal y cronograma} \label{sec:cronograma}
-% Diagrama de Gantt
+
+Para visualizar la distribución temporal de las diferentes tareas realizadas durante el desarrollo de este TFM, se ha elaborado el siguiente diagrama de Gantt (Figura \ref{fig:gantt}).
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[x=1.2cm, y=0.7cm]
+    \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        bar/.style={fill=blue!40},
+        bar height=0.6,
+        bar label font=\footnotesize\color{black!80},
+        group right shift=0,
+        group top shift=0.6,
+        group height=0.3,
+        group/.style={fill=black!30},
+        title label font=\bfseries\footnotesize,
+        title left shift=0,
+        title right shift=0,
+        title height=1,
+        milestone/.style={fill=red, rounded corners=0pt},
+        y unit chart=0.6cm,
+        x unit=1.2cm
+    ]{1}{8}
+        \gantttitle{2024}{2}
+        \gantttitle{2025}{6} \\
+        \gantttitle{Nov}{1}
+        \gantttitle{Dic}{1}
+        \gantttitle{Ene}{1}
+        \gantttitle{Feb}{1}
+        \gantttitle{Mar}{1}
+        \gantttitle{Abr}{1}
+        \gantttitle{May}{1}
+        \gantttitle{Jun}{1} \\
+        \ganttbar{Rev. bibliográfica}{1}{2} \\
+        \ganttbar{Estudio de SoT}{2}{4} \\
+        \ganttbar{Desarrollo Bot}{2}{5} \\
+        \ganttbar{Pruebas Bot}{5}{5} \\
+        \ganttbar{Entrenador básico}{4}{5} \\
+        \ganttbar{Script gráficas}{5}{6} \\
+        \ganttbar{Exp. básicos}{6}{6} \\
+        \ganttbar{Entrenador final}{6}{7} \\
+        \ganttbar{Exp. finales}{7}{8} \\
+        \ganttbar[bar/.style={fill=green!40}]{Escritura TFM}{7}{8} \\
+    \end{ganttchart}
+    \end{tikzpicture}
+    \caption{Distribución temporal de las tareas del proyecto}
+    \label{fig:gantt}
+\end{figure}
+
+Como se puede observar en el diagrama, la mayoría de tareas se han desarrollado de forma secuencial, aunque algunas se han solapado parcialmente cuando ha sido posible trabajar en paralelo. La escritura del TFM se concentró en el último mes y medio del proyecto, una vez que se contaba con resultados experimentales suficientes para documentar adecuadamente el trabajo realizado.
