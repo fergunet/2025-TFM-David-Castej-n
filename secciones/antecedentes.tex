@@ -1,11 +1,8 @@
 \chapter{Antecedentes y estado del arte} \label{chap:antecedentes}
 
 \section{Inteligencia artificial en videojuegos comerciales} \label{sec:ia_videojuegos}
-% Hablar sobre las técnicas comunes de IA en juegos (máquinas de estados, árboles de comportamiento, MCTS)
-% Qué técnicas se están usando actualmente
-% Metaheurísticas y algoritmos evolutivos en videojuegos
 
-En esta sección se realiza un breve repaso a las técnicas de inteligencia artificial más utilizadas a lo largo de la historia de los videojuegos, así como algunos ejemplos del estado del arte en este ámbito. Los usos de estas ténicas no solo abarcan su función más habitual de antagonista o compañero, sino que también abarca otros aspectos como la generación de contenido procedural o la deformación realista de las mallas \footnote{Un ``mesh'', o malla en español, es una estructura tridimensional formada por una colección de vértices, aristas y caras que definen la forma de un objeto 3D dentro de un videojuego \cite{universidad_europea_que_2025}.} de los personajes animados.
+En esta sección se realiza un breve repaso a las técnicas de inteligencia artificial más utilizadas a lo largo de la historia de los videojuegos, así como algunos ejemplos del estado del arte en el ámbito de la industria comercial del videojuego. Los usos de estos algoritmos no solo abarcan su función más habitual de enemigo o aliado, sino que también abarcan otros aspectos como la búsqueda de caminos o la deformación realista de las mallas \footnote{Una ``mesh'', o malla en español, es una estructura tridimensional formada por una colección de vértices, aristas y caras que definen la forma de un objeto 3D dentro de un videojuego \cite{universidad_europea_que_2025}.} de los personajes animados.
 
 \subsection{Funciones hash}
 
@@ -31,28 +28,49 @@ El aprendizaje por refuerzo (RL, por sus siglas en inglés) es un subcampo del a
 
 Pero el uso de redes neuronales no se limita a la toma de decisiones. Su capacidad para realizar inferencias rápidas a partir de datos complejos las hace ideales para otras tareas, como la deformación de mallas. El objetivo en este caso es evitar el fenómeno conocido como el ``valle inquietante'' (\textit{Uncanny Valley}), que se produce cuando una réplica de un ser humano es muy realista, pero no perfecta, generando una sensación de extrañeza en el espectador. Un personaje que sonríe, por ejemplo, pero cuyos músculos faciales alrededor de los ojos permanecen inmóviles, es un caso clásico de este efecto. Para intentar superar este problema, Epic Games optó por crear un sistema para Unreal Engine que utiliza modelos de redes neuronales que simulan el comportamiento de la musculatura y los tejidos blandos bajo la piel al extenderse y contraerse \cite{epic_games_ml_2025}. Un ejemplo de uso de esta reciente tecnología se puede encontrar en la demo técnica que CD Projekt Red mostró en el Unreal Fest de 2025 \cite{cd_projekt_red_witcher_2025}. En ella, se mostraba como se modelaba internamente la musculatura de un caballo para que sus animaciones de movimiento fueran mucho más realistas.
 
-% Me parece que ya es suficiente con lo que hay. Quito esta sección.
+% Me parece que ya es suficiente con lo que hay. Quito esta sección y la siguiente.
+
 % \subsection{Unión de varias técnicas}
 % The Last of Us: Parte II --> muchos sistemas entrelazados
 % Alien: Isolation --> Árbol de comportamiento + Director de IA
 
-% También quito esta sección, no es una tecnología lo suficientemente madura como para uso actual en videojuegos comerciales.
 % \subsection{Modelos de lenguaje grande}
+% No es una tecnología lo suficientemente madura como para uso actual en videojuegos comerciales.
 
-\section{Metaheurísticas en videojuegos} \label{sec:estado_arte}
-\subsection{Generación de contenido procedural}
+\section{Metaheurísticas en la investigación científica sobre videojuegos} \label{sec:estado_arte}
 
 
-\subsection{El desafío de las metaheurísticas en videojuegos comerciales}
+
+% \subsection{Generación de contenido procedural}
+% Procedural Generation of Quests for Games Using Genetic Algorithms and Automated Planning --> https://www.icad.puc-rio.br/~logtell/papers/Edirlei_SBGames_2019.pdf
+% Search-Based Procedural Content Generation: A Taxonomy and Survey --> https://ieeexplore.ieee.org/document/5756645
+% Evaluating Alternative Metaheuristic Algorithms for Procedural Content Generation in Game Design --> https://www.researchgate.net/publication/389270827_Evaluating_Alternative_Metaheuristic_Algorithms_for_Procedural_Content_Generation_in_Game_Design
+% Systematic Literature Review of Meta-heuristic Algorithms and their Application in Procedural Content Generation (PCG) in the Context of Computer Games --> https://labs.sciety.org/articles/by?article_doi=10.21203/rs.3.rs-4883187/v1
+% Procedural Video Game Scene Generation by Genetic and Neutrosophic WASPAS Algorithms: https://www.mdpi.com/2076-3417/12/2/772
+% Flexible Muscle-Based Locomotion for Bipedal Creatures --> https://www.goatstream.com/research/papers/SA2013/
+% Comparative Analysis of Metaheuristic Algorithms for Procedural Race Track Generation in Games --> https://www.igi-global.com/article/comparative-analysis-of-metaheuristic-algorithms-for-procedural-race-track-generation-in-games/350330
+
+% Continuous Spatial Public Goods Game Based on Particle Swarm Optimization with Memory Stability --> https://www.mdpi.com/2227-7390/10/23/4572
+
+% AntBot: ant colonies for video games --> https://www.computer.org/csdl/journal/ci/2012/04/06262464/13rRUzpzeDF
+
+% Evolutionary Artificial Intelligence for MOBA / Action-RTS Games using Genetic Algorithms --> https://www.ijcaonline.org/proceedings/icrtitcs2012/number10/10320-1465/#:~:text=The%20Genetic%20Algorithms%20hence%20defines,reactive%20response%20of%20the%20enemy.
+% An evolutionary approach to balancing and disrupting real-time strategy games --> https://mssanz.org.au/modsim2021/papers/M8/snell.pdf
 
 
 \section{Algoritmos evolutivos en juegos de cartas} \label{sec:trabajos_relacionados}
+
+% Hablar sobre el software para la simulación de juegos de cartas: Magic Workstation, Sabberstone, etc.
+
+% No solamente hay simuladores para crear mazos, sino también para crear jugadores virtuales (bots)
+
 % Paper de Pablo y TFG de los ganadores de la competición de IA de Tales of Tribute. Comparar sus enfoques al mio
 
-
 \subsection{Optimización de agentes de Hearthstone mediante un algoritmo evolutivo}
-
+% Pablo --> https://www.sciencedirect.com/science/article/pii/S0950705119304356
 
 \subsection{Desarrollo de un agente para el concurso de IA Tales of Tribute}
-% Comprobar si los del MCTS usan algoritmos evolutivos
-\todo{Analizar la estrategia de MCTS de los ganadores de la competición de IA de Tales of Tribute.}
+% MCTS es el state of the art en juegos de cartas (buscar como le va al aprendizaje por refuerzo actualmente)
+
+% Meter foto de ganadores del año pasado
+\todo{Analizar la estrategia de MCTS de los ganadores de la competición de IA de Tales of Tribute OG7.}
