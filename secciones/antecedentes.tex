@@ -19,7 +19,7 @@ Como evolución a las máquinas de estados finitos, surgieron los árboles de co
 
 \subsection{Planificación de acciones orientada a objetivos}
 
-En contraste con los árboles de comportamiento, que generan una jerarquía de caminos, la planificación de acciones orientada a objetivos (GOAP, por sus siglas en inglés) es más parecida a la planificación de rutas, donde se busca el camino más óptimo para alcanzar un objetivo en función del estado del mundo. Cada uno de los pasos que llevan al objetivo tiene una serie de precondiciones que deben cumplirse, a los cuales se les puede asignar un coste. Es tal su similitud con la planificación de rutas, que este tipo de IA suelen utilizar internamente algoritmos de búsqueda como A*\footnote{A* también se utiliza en la búsqueda de caminos tradicional dentro de los videojuegos, es decir, para saber la ruta que debe tomar un objeto por el mapa para llegar a un destino, y no solo en GOAP.} para encontrar el camino más óptimo. Una de las mejores implementaciones de este tipo de IA se encuentra en el título de 2005 \textit{F.E.A.R.}, donde los enemigos y aliados utilizan GOAP para ``planificar'' su comportamiento una manera mucho más proactiva que sus predecesores \cite{jeff_gdc_2006}.
+En contraste con los árboles de comportamiento, que generan una jerarquía de caminos, la planificación de acciones orientada a objetivos (GOAP, por sus siglas en inglés) es más parecida a la planificación de rutas, donde se busca el camino más óptimo para alcanzar un objetivo en función del estado del mundo. Cada uno de los pasos que llevan al objetivo tiene una serie de precondiciones que deben cumplirse, a los cuales se les puede asignar un coste. Es tal su similitud con la planificación de rutas, que este tipo de IA suelen utilizar internamente algoritmos de búsqueda como A*\footnote{El algoritmo A* también se utiliza para la búsqueda de caminos tradicional dentro de los videojuegos, es decir, para saber la ruta que debe tomar un objeto por el mapa para llegar a un destino.} para encontrar el camino más óptimo. Una de las mejores implementaciones de este tipo de IA se encuentra en el título de 2005 \textit{F.E.A.R.}, donde los enemigos y aliados utilizan GOAP para ``planificar'' su comportamiento una manera mucho más proactiva que sus predecesores \cite{jeff_gdc_2006}.
 
 
 \subsection{Aprendizaje por refuerzo y redes neuronales}
@@ -37,11 +37,22 @@ Pero el uso de redes neuronales no se limita a la toma de decisiones. Su capacid
 % \subsection{Modelos de lenguaje grande}
 % No es una tecnología lo suficientemente madura como para uso actual en videojuegos comerciales.
 
+\section{El problema de la IA en los videojuegos comerciales} \label{sec:problema_ia_videojuegos}
+
+En la anterior sección se han hablado exclusivamente de videojuegos que han salido al mercado para el público general. Pero, salvo para funciones específicas como el movimiento de las motos en \textit{Star Wars: Outlaws}, no se ha mencionado el uso de técnicas de inteligencia artificial ``avanzadas'' para el control de los personajes o contrincantes virtuales. Sin embargo, este tipo de IAs sí existen. Se han desarrollado con éxito bots capaces de jugar a alto nivel videojuegos como \textit{StarCraft II} \cite{vinyals_grandmaster_2019}, \textit{Dota 2} \cite{openai_dota_2019} o \textit{Rocket League} \cite{moschopoulos_lucy-skg_2023}, entre otros. Todos estos artículos científicos, aclamados por la comunidad debido a su complejidad, tienen algo en común: se han creado una vez el juego ya había sido lanzado y era estable.
+
+A menudo, los videojuegos con componentes multijugador de éxito, acaban siendo actualizados y mejorados durante años. Este clima de constance cambio, el cual se ve acentuado aun más durante la etapa inicial de su desarrollo, hace que el uso de técnicas como el aprendizaje por refuerzo, los algoritmo evolutivos o las redes neuronales sean especialmente difíciles de implementar. El ejemplo de \textit{Star Wars: Outlaws} es un caso muy reciente, con tecnología especialmente desarrollada para su motor gráfico y con un equipo detrás de cientos de personas con capacidad de delegar personal en enfoques más vanguardistas. Y aun así, sólo usaron el aprendizaje por refuerzo para un aspecto muy específico del videojuego.
+
+Además, se podría considerar un problema del tipo ``el huevo o la gallina'', se necesita que el juego esté prácticamente listo para entrenar al bot, lo que permite crear un bot específico para esa versión, pero si el juego cambia, incluso con pequeños ajustes de balanceo de poder, entonces el rendimiento del bot puede verse afectado. Por eso todos esos artículos científicos se centran en juegos ya terminados o en una versión específica del videojuego. En aquellos casos en los se ha conseguido crear un bot que maneje todos los aspectos de un videojuego (jugador virtual), como lo fue para AlphaStar \cite{vinyals_grandmaster_2019} o OpenAI Five \cite{openai_dota_2019}, se han necesitado una gran cantidad de datos que solo se podrían haber obtenido gracias a la comunidad de jugadores de sus respectivos videojuegos y no antes de su lanzamiento.
+
+Sin embargo, esto no significa que no se puedan crear este tipo de bots para videojuegos que están en desarrollo. Simplemente se deben utilizar para funciones específicas dentro de estos o en el caso de videojuegos que no requieran de un escenario tan complejo como los mencionados anteriormente \cite{ai_and_games_why_2024}. Un ejemplo de esto sería el caso de Sophy, la IA de conducción de \textit{Gran Turismo 7} \cite{wurman_outracing_2022}, que fue entrenada durante el desarrollo del videojuego para manejar los vehículos del videojuego de carreras.
+
+A día de hoy es posible que esa sea la forma más adecuada de utilizar este tipo de técnicas: o bien para pequeñas características del juego, o bien para entornos más reducidos, como el caso de los videojuegos de cartas. En ese tipo de videojuegos, aunque el número de variables es alto, la cantidad de acciones posibles en cada turno es limitada, lo que permite entrenar a los bots de forma más eficiente. En las siguientes secciones se revisarán algunas de las investigaciones científicas que intentan aplicar este mismo enfoque a sus implementaciones.
+
 \section{Metaheurísticas en la investigación científica sobre videojuegos} \label{sec:estado_arte}
 
+% ------------------------------------------------------------------------------------------------
 
-
-% \subsection{Generación de contenido procedural}
 % Procedural Generation of Quests for Games Using Genetic Algorithms and Automated Planning --> https://www.icad.puc-rio.br/~logtell/papers/Edirlei_SBGames_2019.pdf
 % Search-Based Procedural Content Generation: A Taxonomy and Survey --> https://ieeexplore.ieee.org/document/5756645
 % Evaluating Alternative Metaheuristic Algorithms for Procedural Content Generation in Game Design --> https://www.researchgate.net/publication/389270827_Evaluating_Alternative_Metaheuristic_Algorithms_for_Procedural_Content_Generation_in_Game_Design
@@ -57,20 +68,35 @@ Pero el uso de redes neuronales no se limita a la toma de decisiones. Su capacid
 % Evolutionary Artificial Intelligence for MOBA / Action-RTS Games using Genetic Algorithms --> https://www.ijcaonline.org/proceedings/icrtitcs2012/number10/10320-1465/#:~:text=The%20Genetic%20Algorithms%20hence%20defines,reactive%20response%20of%20the%20enemy.
 % An evolutionary approach to balancing and disrupting real-time strategy games --> https://mssanz.org.au/modsim2021/papers/M8/snell.pdf
 
+% ------------------------------------------------------------------------------------------------
 
-\section{Algoritmos evolutivos en juegos de cartas} \label{sec:trabajos_relacionados}
+% Contenidos de esta sección:
+% PCG: Search-Based Procedural Content Generation: A Taxonomy and Survey --> https://ieeexplore.ieee.org/document/5756645
+% Animaciones: Flexible Muscle-Based Locomotion for Bipedal Creatures --> https://dl.acm.org/doi/10.1145/2508363.2508399
+% Balanceo de videojuegos: An evolutionary approach to balancing and disrupting real-time strategy games --> https://ro.ecu.edu.au/ecuworkspost2013/11752/
 
-% Hablar sobre el software para la simulación de juegos de cartas: Magic Workstation, Sabberstone, etc.
 
-% No solamente hay simuladores para crear mazos, sino también para crear jugadores virtuales (bots)
+Una de esas aplicaciones específicas es la generación procedural de contenido, la cual trata de unir y mezclar diferentes bloques de construcción prehechos para crear nuevos elementos dentro del videojuego. Por ejemplo, se podrían utilizar varias texturas de manchas, ruido, metales y óxido para crear una única textura que muestre un material deteriorado por el tiempo, pero que tenga un aspecto único cada vez que se use. Otro ejemplo sería el de colocar diferentes plantas, rocas y árboles sobre un terreno para crear un bosque. Ya en 2011, Togelius et al. \cite{togelius_search-based_2011} publicaron una review sobre los diferentes enfoques que se estaban utilizando para la generación procedural de contenido en videojuegos, y cómo las metaheurísticas estaban siendo utilizadas para este fin. Un ejemplo que revisaron fue el sistema Ludi, que codificaba las reglas del juego como árboles de expresión y usaba programación genética para generar conjuntos de reglas balanceadas para el videojuego. En su artículo, los autores dicen los sistemas revisados, los cuales usan enfoques basados en la simulación de procesos naturales, deben mejorar la consistencia, la rapidez y la personalización para el usuario si se quisieran utilizar estas técnicas en videojuegos comerciales. 
+
+Otro ejemplo de uso de metaheurísticas en la generación procedural de contenido es el trabajo de Geijtenbeek et al. \cite{geijtenbeek_flexible_2013}, donde se presenta un sistema de locomoción para criaturas bípedas que utiliza un algoritmo evolutivo para optimizar los pesos de las articulaciones necesarios para que la criatura se mueva adecuadamente. En su artículo, los autores muestran como los controladores eran capaces de adaptarse a diferentes terrenos con desnivel e incluso perturbaciones externas.
+
+Más recientemente, en 2021, Snell et al. \cite{snell_evolutionary_2021} presentaron un enfoque evolutivo para el balanceo de videojuegos de estrategia en tiempo real. En su trabajo, utilizaron diferentes variables dentro del videojuego para conseguir variaciones en la dificultad de un nivel sin desviarse demasiado de la experiencia original del videojuego. Concluyeron que su enfoque era capaz de generar niveles similares, pero que se sentían diferentes, lo que permitía al jugador disfrutar de una experiencia más variada sin ser injusta.
+
+\section{Algoritmos evolutivos en juegos de estrategia por turnos} \label{sec:trabajos_relacionados}
+
+% Hablar sobre el software para la simulación de juegos de cartas: Magic Workstation (magi-soft_development_magic_2002), Sabberstone (hearthsim_hearthsimsabberstone_2017) y Pokemon Video Game Championships - VGC (simao_reis_vgc_2019).
+
+
+
 
 % Paper de Pablo y TFG de los ganadores de la competición de IA de Tales of Tribute. Comparar sus enfoques al mio
 
 \subsection{Optimización de agentes de Hearthstone mediante un algoritmo evolutivo}
-% Pablo --> https://www.sciencedirect.com/science/article/pii/S0950705119304356
+% Pablo --> https://www.sciencedirect.com/science/article/pii/S0950705119304356 --> garcia-sanchez_optimizing_2020
 
 \subsection{Desarrollo de un agente para el concurso de IA Tales of Tribute}
-% MCTS es el state of the art en juegos de cartas (buscar como le va al aprendizaje por refuerzo actualmente)
+% MCTS es el state of the art en juegos de cartas (buscar como le va al aprendizaje por refuerzo actualmente) 
+% Ganadores de la competición de Script of Tribute en 2023 y 2024 --> adam_ciezkowski_developing_2023
 
 % Meter foto de ganadores del año pasado
 \todo{Analizar la estrategia de MCTS de los ganadores de la competición de IA de Tales of Tribute OG7.}
