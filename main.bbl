@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{aaron_garret_library_2025}
+{Aaron Garret}.
+\newblock Library {Reference} — inspyred 1.0.3 documentation, 2025.
+\newblock URL: \url{https://inspyred.readthedocs.io/en/latest/reference.html}.
+
 \bibitem{adam_ciezkowski_developing_2023}
 {Adam Ciężkowski} and {Artur Krzyżyński}.
 \newblock Developing {Card} {Playing} {Agent} for {Tales} of {Tribute} {AI} {Competition}, 2023.
@@ -19,6 +24,17 @@
 {Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
 \newblock {ScriptsOfTribute} · {GitHub}, 2022.
 \newblock URL: \url{https://github.com/ScriptsOfTribute}.
+
+\bibitem{ematerasu_scriptsoftribute-competitionsarchive_2024}
+{Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
+\newblock {ScriptsOfTribute}-{CompetitionsArchive}, 2024.
+\newblock URL: \url{https://github.com/ScriptsOfTribute/ScriptsOfTribute-CompetitionsArchive}.
+
+\bibitem{ematerasu_scriptsoftribute-gui-20_2025}
+{Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
+\newblock {ScriptsOfTribute}-{GUI}-2.0, June 2025.
+\newblock original-date: 2025-04-14T08:38:44Z.
+\newblock URL: \url{https://github.com/ScriptsOfTribute/ScriptsOfTribute-GUI-2.0}.
 
 \bibitem{universidad_europea_que_2025}
 Universidad Europea.
@@ -42,6 +58,12 @@ Pablo García-Sánchez, Alberto Tonda, Antonio~J. Fernández-Leiva, and Carlos C
 \newblock {\em Knowledge-Based Systems}, 188:105032, January 2020.
 \newblock URL: \url{https://www.sciencedirect.com/science/article/pii/S0950705119304356}, \href {https://doi.org/10.1016/j.knosys.2019.105032} {\path{doi:10.1016/j.knosys.2019.105032}}.
 
+\bibitem{garrett_aarongarrettinspyred_2012}
+Aaron Garrett.
+\newblock aarongarrett/inspyred, 2012.
+\newblock original-date: 2012-03-08T04:44:48Z.
+\newblock URL: \url{https://github.com/aarongarrett/inspyred}.
+
 \bibitem{gaudreau_game_2025}
 Colin Gaudreau and Andreas Lasses.
 \newblock Game {AI} {Summit}: {No} {Brakes}! {Machine} {Learning} {Vehicles} in '{Star} {Wars} {Outlaws}', 2025.
@@ -57,6 +79,11 @@ Thomas Geijtenbeek, Michiel van~de Panne, and A.~Frank van~der Stappen.
 Majid Ghasemi, Amir Hossein, and Dariush Ebrahimi.
 \newblock Comprehensive {Survey} of {Reinforcement} {Learning}: {From} {Algorithms} to {Practical} {Challenges}, February 2025.
 \newblock URL: \url{https://arxiv.org/html/2411.18892v2#bib.bib84}.
+
+\bibitem{google_grpc_2016}
+{Google}.
+\newblock {gRPC}, 2016.
+\newblock URL: \url{https://grpc.io/}.
 
 \bibitem{guervos_jjplantilla-tfg-etsiit_2024}
 Juan Julián~Merelo Guervós.
@@ -85,6 +112,12 @@ Orkin Jeff.
 \newblock Magic {Workstation}, {Cards} {Management} and {Decks} {Testing} for {CCG} {Players}, {Online} {Play}, 2002.
 \newblock URL: \url{https://www.magicworkstation.com/}.
 
+\bibitem{mariela_nogueira_analysis_2013}
+{Mariela Nogueira}, {Carlos Cotta}, and {Antonio J. Fernández-Leiva}.
+\newblock An {Analysis} of {Hall}-of-{Fame} {Strategies} in {Competitive} {Coevolutionary} {Algorithms} for {Self}-{Learning} in {RTS} {Games}.
+\newblock {\em ResearchGate}, January 2013.
+\newblock URL: \url{https://www.researchgate.net/publication/290305105_An_Analysis_of_Hall-of-Fame_Strategies_in_Competitive_Coevolutionary_Algorithms_for_Self-Learning_in_RTS_Games}, \href {https://doi.org/10.1007/978-3-642-44973-4_19} {\path{doi:10.1007/978-3-642-44973-4_19}}.
+
 \bibitem{mike_game_2016}
 Mike.
 \newblock Game {Programming} {Concepts}–{Finite} {State} {Machines}, June 2016.
@@ -101,6 +134,11 @@ OpenAI, Christopher Berner, Greg Brockman, Brooke Chan, Vicki Cheung, Przemysła
 \newblock Dota 2 with {Large} {Scale} {Deep} {Reinforcement} {Learning}, December 2019.
 \newblock arXiv:1912.06680 [cs, stat].
 \newblock URL: \url{http://arxiv.org/abs/1912.06680}, \href {https://doi.org/10.48550/arXiv.1912.06680} {\path{doi:10.48550/arXiv.1912.06680}}.
+
+\bibitem{pixel_eso_2022}
+Pixel.
+\newblock {ESO} {Tales} of {Tribute} {Guide}, June 2022.
+\newblock URL: \url{https://deltiasgaming.com/eso-tales-of-tribute-guide/}.
 
 \bibitem{redheffer_machine_1948}
 Raymond Redheffer.

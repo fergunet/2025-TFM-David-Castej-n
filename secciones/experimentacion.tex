@@ -1,19 +1,25 @@
 \chapter{Diseño experimental} \label{chap:experimentacion}
-% Como se prueban los bots
 
-\todo{Probar diferentes combinaciones en el modo hibrido.}
-\todo{Hablar sobre los individuos generalistas (todos los pesos parecidos) y especialistas (0-1 en los pesos) en los mejores pesos.}
-\todo{Ver la diferencia entre usar el hall of fame y no usarlo ya que no debería añadir info de una train run a otra. Mirar en la literatura que es exactamente hall of fame.}
-\todo{Para comparar los modos de entrenamiento, intentar que todos los algoritmos se ejecuten durante la misma cantidad de tiempo (aunque tengan tamaños de poblaciones diferentes).}
-\todo{Lanzar sin el hall of fame para evitar las diferencias entre runs.}
+Esta tercera parte del TFM, aborda el diseño experimental, los resultados y las conclusiones del proyecto. Una vez descritos los componentes individuales, es decir, el agente autónomo y el sistema de entrenamiento evolutivo, este capítulo se centra en el diseño de los experimentos llevados a cabo para evaluar y comparar las distintas estrategias de optimización. El objetivo de la fase experimental no es solo encontrar el mejor conjunto de pesos posible, sino también entender cómo las diferentes configuraciones del algoritmo evolutivo afectan al proceso de aprendizaje y a la naturaleza de las soluciones encontradas. Para ello, se han diseñado una serie de experimentos controlados que permiten analizar el impacto de factores como el modo de evaluación (fijo, coevolutivo o híbrido) y el uso de un salón de la fama.
 
 \section{Configuración de los experimentos} \label{sec:configuracion_experimentos}
-% Entrenamiento en modo Coevolución
-% Entrenamiento en modo Híbrido con varias organizaciones
-% Parámetros utilizados de configuración
 
+El diseño de los experimentos se ha centrado en responder a dos preguntas fundamentales: ¿qué combinación de estrategias en el modo híbrido produce los mejores agentes? y ¿cuál es el impacto del salón de la fama en el rendimiento del entrenamiento? Para abordar estas cuestiones, se crearon scripts de ejecución que automatizan el lanzamiento de varios conjuntos entrenamientos, cada uno con una configuración específica.
+
+Un principio clave en el diseño comparativo fue el de asegurar la equidad entre las distintas configuraciones. Dado que los modos de evaluación, como el fijo y el de coevolución, tienen un coste computacional por generación muy diferente, no sería justo compararlos por un número fijo de generaciones. En su lugar, los experimentos se configuraron para ejecutarse durante una cantidad de tiempo aproximadamente equivalente, lo que permite una comparación más justa entre las distintas estrategias de entrenamiento.
+
+Los experimentos se dividieron en dos bloques:
+\begin{itemize}
+	\item \textbf{Análisis de configuraciones híbridas:} Para explorar en profundidad el modo híbrido, se diseñó un experimento dedicado exclusivamente a probar una veintena de configuraciones distintas del parámetro \texttt{--hybrid\_schedule\_str}. Estas configuraciones varían tanto en el número de segmentos como en la proporción de evaluaciones dedicadas a cada modo (fijo o coevolución), con el objetivo de encontrar un balance óptimo entre la explotación de conocimiento (evaluación contra oponentes fijos) y la exploración de nuevas estrategias (competición interna).
+	\item \textbf{Análisis de los modos de entrenamiento y el salón de la fama:} Para hallar el método que genera los bots más poderosos se creó un experimento que ejecuta los tres modos de entrenamiento principales (fijo, coevolutivo e híbrido) dos veces. La primera vez con el salón de la fama activado (con un tamaño de 3 individuos), y la segunda vez completamente desactivado. Es necesario aclarar que cada entrenamiento se compone de 5 carreras independientes, cuyos resultados se promedian para obtener una medida más robusta del rendimiento del agente.
+\end{itemize}
 
 \section{Métricas de evaluación} \label{sec:metricas_evaluacion}
-% Evolución del fitness (máximo, medio, mínimo) a lo largo de las generaciones
-% Convergencia y distribución de los pesos de la población
-% Rendimiento del "campeón" de cada `train_run` en el benchmark final y contra otros bots fuera del entrenador
+
+Para analizar los resultados de estos experimentos de una forma cuantitativa y visual, se desarrolló un script en Python que procesa los ficheros de datos en formato CSV generados por el entrenador. Este script genera un conjunto de gráficas estandarizadas que permiten evaluar y comparar el rendimiento de las diferentes configuraciones a través de varias métricas clave.
+
+Una de las métricas principales es la evolución del \textit{fitness} a lo largo de las generaciones. Se genera una gráfica de líneas que muestra el \textit{fitness} máximo, medio y mínimo, promediado a través de todas las carreras de entrenamiento de un mismo experimento. Esta visualización pretende utilizarse para entender la velocidad de convergencia y si el algoritmo se estanca en óptimos locales.
+
+Otra área de análisis se centra en la convergencia y distribución de los pesos del genoma. Para ello se utilizan dos tipos de gráficas. Primero, un mapa de calor que muestra la evolución del valor promedio de cada uno de los 20 pesos a lo largo de las generaciones. Segundo, un diagrama de barras que presenta el valor medio final de cada peso en la última generación. Estas gráficas permiten analizar si el algoritmo converge hacia soluciones ``generalistas'', donde muchos pesos tienen valores moderados, o hacia soluciones ``especialistas'', donde unos pocos pesos tienden a valores extremos (cercanos a 0 o 1), indicando que el bot ha aprendido a priorizar unas pocas heurísticas muy específicas. Para medir la consistencia y el rendimiento del campeón final, se utilizan dos enfoques. Por un lado, un diagrama de cajas para cada peso muestra la distribución de los valores finales de los campeones de todas las carreras. El script permite generar todas estas gráficas tanto de los campeones de cada generación como de la media de los pesos de los individuos de cada generación, lo que proporciona una visión desde varios ángulos del proceso de entrenamiento.
+
+Finalmente, la métrica de rendimiento definitiva es el benchmark que se ejecuta al concluir cada experimento. En esta fase, los campeones de cada carrera compiten entre sí para determinar al ganador absoluto, cuya tasa de victorias en este torneo final se considera la medida última del éxito de esa configuración de entrenamiento. De entre los campeones de cada entrenamiento (que ya son los campeones de su conjunto de carreras), se realiza un segundo torneo final para determinar el campeón absoluto de ese experimento. Este torneo final se ejecuta contra un conjunto de bots fijos, que actúan como una referencia estable para evaluar el rendimiento del agente entrenado en un contexto parecido al de la competición real CoG.
