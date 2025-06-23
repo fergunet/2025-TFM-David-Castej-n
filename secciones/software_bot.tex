@@ -49,7 +49,7 @@ El comportamiento estratégico del bot está enteramente definido por un conjunt
 La transferencia de estos pesos desde el entrenador al bot es un componente clave del sistema. Para evitar la sobrecarga de reescribir ficheros constantemente, el mecanismo principal se basa en el uso de variables de entorno. El script de Python convierte el genoma de un individuo (un array de 20 números) en una cadena de texto separada por comas. Esta cadena se asigna a una variable de entorno antes de lanzar el proceso del ``GameRunner''. Al iniciarse, el bot detecta estas variables, las lee, y utiliza sus valores para configurar la función de evaluación para esa partida en concreto.
 
 	{\scriptsize
-		\setlength{\tabcolsep}{4pt}  % Reduce el espaciado entre columnas
+		\setlength{\tabcolsep}{4pt}
 		\begin{longtable}{@{}l>{\tiny\raggedright\arraybackslash}p{2.2cm}p{0.65\textwidth}@{}}
 			\caption{Descripción de los pesos del genoma del agente evolutivo.} \label{tab:pesos_ebw}                                                                                       \\
 
