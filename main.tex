@@ -9,7 +9,7 @@
 \documentclass[11pt, a4paper]{book}
 
 % Desactiva la distribución vertical automática
-% \raggedbottom
+\raggedbottom
 
 % PAQUETES ------------------------------------------------------------------------------
 
@@ -32,8 +32,8 @@
 \usepackage{multirow}
 % Elimina numeración de paginas en blanco
 \usepackage{emptypage}
-% Permite continuar con la numeración entre listas distintas
-% \usepackage{enumitem}
+% Añade más funcionalidades a las listas
+\usepackage{enumitem}
 % Introduce la bibliografía en el índice
 \usepackage[nottoc]{tocbibind}
 % Permite continuar con la numeración entre listas distintas
@@ -42,8 +42,8 @@
 % Para incluir el símbolo del euro
 \usepackage[gen]{eurosym} 
 \usepackage{cite} %para incluir citas del archivo <nombre>.bib
-\usepackage{enumerate}
-% Permite añadir comentarios multilinea que no se mostrarán en el PDF final
+% \usepackage{enumerate}
+% Permite añadir comentarios multilínea que no se mostrarán en el PDF final
 \usepackage{comment}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -62,6 +62,9 @@
 \usepackage{longtable}
 % Permite crear tablas con celdas de ancho variable
 \usepackage{array}
+% Para el pseudo-código
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 % ESTILOS DE PAGINA ------------------------------------------------------------------
 \renewcommand{\familydefault}{\sfdefault}
