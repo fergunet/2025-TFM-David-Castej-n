@@ -1,14 +1,20 @@
 \chapter{Conclusiones} \label{chap:conclusiones}
 
 
-\section{Objetivos alcanzados} \label{sec:objetivos_alcanzados}
-% Resumen los hallazgos
-% Explicar punto por punto qué objetivos se han cumplido
 
 
 \section{Líneas de trabajo futuro} \label{sec:trabajo_futuro}
-% Probar operadores de mutación y cruce más sofisticados
-% Expandir el conjunto de oponentes fijos o dinámicos
-% Implementar estrategias de coevolución más complejas
-% Añadir más heurísticas, como quitarse cartas malas de la mano con la tesorería
-% Hyper parameter tuning de los parámetros del algoritmo genético de inspyred
+% Expandir el conjunto de oponentes fijos con los ganadores de la competición CoG.
+% Añadir más heurísticas, como quitarse cartas malas usando la tesorería.
+% Optimizar la evaluación con el uso de cartas instantáneas.
+% Hyper parameter tuning de los parámetros del algoritmo genético de inspyred: Probar operadores de mutación y cruce más sofisticados.
+% Mejorar la elección de mazos mediante winrates.
+% Reimplementar el agente y entrenador en un único lenguaje de programación.
+
+La unión de heurísticas específicas junto con los pesos generados por el algoritmo evolutivo han permitido crear un bot con rendimiento muy competitivo, al menos contra los agentes autónomos de \textit{Scripts of Tribute}. Sin embargo, aun existen muchas áreas de mejora que pueden ser exploradas en el futuro, por ejemplo, endurecer esos mismos oponentes durante el entrenamiento podría desembocar en pesos que produzcan dinámicas más capaces de adaptarse a diferentes estilos de juego. El camino más claro para obtener mejores oponentes es conseguir que los participantes de las competiciones de otros años funcionen correctamente en la versión actual del motor. Lo cual no sería nada sencillo, pues cada uno de esos bots son más complejos que los que SoT proporciona por defecto, pero la recompensa podría ser un gran salto cualitativo en el rendimiento del agente. Un aspecto secundario positivo de este enfoque es que se podrían revisar las heurísticas que dichos bots utilizan, las cuales podrían reimplementarse en el agente de este proyecto y así incluir más conocimiento experto en el mismo.
+
+Aunque en este trabajo se ha puesto especial atención a qué oponentes se enfrentan al agente en los enfrentamientos, así como el orden y la cantidad de partidas que estos juegan, no se ha explorado en profundidad el impacto de alterar los algoritmos base que conforman la estrategia evolutiva. En este sentido, se podrían a utilizar operadores de mutación y cruce más sofisticados de entre los disponibles en la librería \textit{inspyred}, incluso llegando a implementar un ajuste de hiperparámetros para encontrar los que maximicen la exploración y la explotación en diferentes etapas del entrenamiento de forma análoga al modo híbrido de entrenamiento.
+
+Otra forma de mejorar el rendimiento del agente es sabiendo qué mazos son más efectivos al ser jugados por el agente. Durante todo este proyecto se ha utilizado un selector aleatorio de mazos, lo cual es lo más indicado para mejorar la exploración durante el entrenamiento, pero una vez se tiene el conjunto de pesos final, es el momento de afinar la potencia existente lo máximo posible. Para ello, simplemente se tendrían que analizar un gran número de partidas y ver cuales son los mazos que más victorias obtienen. Con esta información, se podría implementar un selector más sofisticado que elija el mazo con mayor probabilidad de ganar en cada partida.
+
+Por último, un cambio a un nivel más holístico sería la refactorización del agente y el entrenador en un único lenguaje de programación. Aunque la idea de utilizar variables de entorno y lecturas de la salida estándar es una técnica perfectamente válida para la versión actual del proyecto, es posible que la unificación de ambos componentes bajo Python permita mejorar el rendimiento del entrenamiento. Para ello, se podría utilizar la implementación del método de comunicación ``gRPC'' que se añadió a SoT recientemente, el cual permitiría que toda la lógica del agente y el entrenador se ejecutara bajo un único programa orquestador, dejando al GameRunner únicamente como un componente de entrada y salida de datos mediante microservicios. Este enfoque permitiría que el entrenador y el agente compartieran objetos y memoria directamente, y además abriría la puerta al uso de otras técnicas más avanzadas como el aprendizaje por refuerzo profundo, que requiere de una alta transferencia de datos del entorno entre el agente y el GameRunner.
