@@ -11,48 +11,38 @@ El diseño de los experimentos se ha centrado en responder a tres preguntas fund
 
 Para explorar en profundidad el modo híbrido, se diseñó un experimento dedicado exclusivamente a probar una veintena de configuraciones distintas de este modo. Sus configuraciones varían tanto en el número de segmentos como en la proporción de evaluaciones dedicadas a cada uno de ellos, con el objetivo de encontrar un balance óptimo entre la explotación de conocimiento (evaluación contra oponentes fijos) y la exploración de nuevas estrategias (competición interna). Dado que en este experimento se busca comparar únicamente el efecto de la variación en el parámetro que controla el orden y proporción de los segmentos que conforman el modo híbrido, se mantuvieron constantes los demás parámetros del entrenador. Esta decisión permite aislar las diferencias de rendimiento únicamente al impacto de dicho parámetro, pero también tiene un efecto colateral: el tiempo de entrenamiento de cada configuración es diferente. Dado que el modo híbrido cuenta con diferentes proporciones de evaluaciones fijas y coevolutivas, el tiempo de entrenamiento puede variar significativamente entre cada configuración. Sin embargo, este aspecto se puede considerar como algo positivo, ya que también permite observar el rendimiento de cada configuración en función del tiempo de entrenamiento, pudiendo encontrar configuraciones que no solo sean más efectivas, sino que también sean más eficientes en términos temporales.
 
-La Tabla \ref{tab:hybrid_schedules} detalla cada una de las 20 configuraciones que se evaluaron. Para cada una, se ha calculado el número total de segmentos, el porcentaje de evaluaciones dedicadas a cada modo (fijo para la explotación y coevolución para la exploración), y una breve descripción de la estrategia que representa. Los parámetros comunes del experimento fueron: 5 carreras de entrenamiento por experimento, una población de 10 individuos, 500 evaluaciones máximas, 200 partidas por evaluación, 8 hilos de paralelismo, y la desactivación tanto del salón de la fama global como del interno para aislar el efecto de la planificación híbrida. Como se han asignado 500 evaluaciones a cada entrenamiento, y cada carrera consta de 10 rondas, esto implica que cada entrenamiento se ejecuta durante un total de 50 generaciones.
+La Tabla \ref{tab:hybrid_schedules} detalla cada una de las 10 configuraciones que se evaluaron. Para cada una, se ha calculado el número total de segmentos, el porcentaje de evaluaciones dedicadas a cada modo (fijo para la explotación y coevolución para la exploración), y una breve descripción de la estrategia que representa. Los parámetros comunes del experimento fueron: 5 carreras de entrenamiento por experimento, una población de 10 individuos, 500 evaluaciones máximas, 200 partidas por evaluación, 8 hilos de paralelismo, y la desactivación tanto del salón de la fama global como del interno para aislar el efecto de la planificación híbrida. Como se han asignado 500 evaluaciones a cada entrenamiento, y cada carrera consta de 10 rondas, esto implica que cada entrenamiento se ejecuta durante un total de 50 generaciones.
 
 \small
 \begin{longtable}{@{}l p{7cm} c c c@{}}
 
 	\caption{Configuraciones de entrenamiento en modo híbrido evaluadas.}
-	\label{tab:hybrid_schedules}                                                                                                                 \\
+	\label{tab:hybrid_schedules}                                                                                                 \\
 	\toprule
-	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})}                 & \textbf{Seg.} & \textbf{\% Fijo} & \textbf{\% Coevo} \\
+	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})} & \textbf{Seg.} & \textbf{\% Fijo} & \textbf{\% Coevo} \\
 	\midrule
 	\endfirsthead
 
 	\multicolumn{5}{c}%
-	{{\bfseries -- continuación de la Tabla \thetable --}}                                                                                       \\
+	{{\bfseries -- continuación de la Tabla \thetable --}}                                                                       \\
 	\toprule
-	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})}                 & \textbf{Seg.} & \textbf{\% Fijo} & \textbf{\% Coevo} \\
+	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})} & \textbf{Seg.} & \textbf{\% Fijo} & \textbf{\% Coevo} \\
 	\midrule
 	\endhead
 
 	\bottomrule
 	\endfoot
 
-	H-1         & \texttt{fixed:0.4,coevolution:0.3,fixed:0.3}                            & 3             & 70\%             & 30\%              \\
-	H-2         & \texttt{fixed:0.7,coevolution:0.3}                                      & 2             & 70\%             & 30\%              \\
-	H-3         & \texttt{fixed:0.4,coevolution:0.2,fixed:0.4}                            & 3             & 80\%             & 20\%              \\
-	H-4         & \texttt{fixed:0.5,coevolution:0.5}                                      & 2             & 50\%             & 50\%              \\
-	H-5         & \texttt{coevolution:0.6,fixed:0.4}                                      & 2             & 40\%             & 60\%              \\
-	H-6         & \texttt{coevolution:0.4,fixed:0.2, coevolution:0.4}                     & 3             & 20\%             & 80\%              \\
-	H-7         & \texttt{f:0.1,c:0.1,f:0.1,c:0.1,f:0.1,c:0.1, f:0.1,c:0.1,f:0.1,c:0.1}   & 10            & 50\%             & 50\%              \\
-	H-8         & \texttt{fixed:0.2,coevolution:0.2,fixed:0.2, coevolution:0.2,fixed:0.2} & 5             & 60\%             & 40\%              \\
-	H-9         & \texttt{fixed:0.8,coevolution:0.2}                                      & 2             & 80\%             & 20\%              \\
-	H-10        & \texttt{coevolution:0.8,fixed:0.2}                                      & 2             & 20\%             & 80\%              \\
-	H-11        & \texttt{fixed:0.2,coevolution:0.5,fixed:0.3}                            & 3             & 50\%             & 50\%              \\
-	H-12        & \texttt{fixed:0.3,coevolution:0.4,fixed:0.3}                            & 3             & 60\%             & 40\%              \\
-	H-13        & \texttt{coevolution:0.3,fixed:0.4, coevolution:0.3}                     & 3             & 40\%             & 60\%              \\
-	H-14        & \texttt{fixed:0.1,coevolution:0.8,fixed:0.1}                            & 3             & 20\%             & 80\%              \\
-	H-15        & \texttt{coevolution:0.1,fixed:0.8, coevolution:0.1}                     & 3             & 80\%             & 20\%              \\
-	H-16        & \texttt{fixed:0.1,coevolution:0.2,fixed:0.1, coevolution:0.6}           & 4             & 20\%             & 80\%              \\
-	H-17        & \texttt{coevolution:0.1,fixed:0.2, coevolution:0.1,fixed:0.6}           & 4             & 80\%             & 20\%              \\
-	H-18        & \texttt{fixed:0.9,coevolution:0.1}                                      & 2             & 90\%             & 10\%              \\
-	H-19        & \texttt{coevolution:0.9,fixed:0.1}                                      & 2             & 10\%             & 90\%              \\
-	H-20        & \texttt{fixed:0.33,coevolution:0.34,fixed:0.33}                         & 3             & 66\%             & 34\%              \\
+	H-1         & \texttt{fixed:0.4,coevolution:0.3,fixed:0.3}            & 3             & 70\%             & 30\%              \\
+	H-2         & \texttt{fixed:0.7,coevolution:0.3}                      & 2             & 70\%             & 30\%              \\
+	H-3         & \texttt{fixed:0.4,coevolution:0.2,fixed:0.4}            & 3             & 80\%             & 20\%              \\
+	H-4         & \texttt{fixed:0.5,coevolution:0.5}                      & 2             & 50\%             & 50\%              \\
+	H-5         & \texttt{coevolution:0.6,fixed:0.4}                      & 2             & 40\%             & 60\%              \\
+	H-6         & \texttt{coevolution:0.4,fixed:0.2, coevolution:0.4}     & 3             & 20\%             & 80\%              \\
+	H-7         & \texttt{fixed:0.8,coevolution:0.2}                      & 2             & 80\%             & 20\%              \\
+	H-8         & \texttt{coevolution:0.8,fixed:0.2}                      & 2             & 20\%             & 80\%              \\
+	H-9         & \texttt{fixed:0.3,coevolution:0.4,fixed:0.3}            & 3             & 60\%             & 40\%              \\
+	H-10        & \texttt{coevolution:0.3,fixed:0.4, coevolution:0.3}     & 3             & 40\%             & 60\%              \\
 \end{longtable}
 
 \subsection{Análisis de los modos de entrenamiento y el salón de la fama} \label{sec:experimentos_modos_entrenamiento}
@@ -61,20 +51,22 @@ Para hallar el método que genera los bots con mayor porcentaje de victoria se c
 
 La Tabla \ref{tab:main_experiments} resume las 6 configuraciones específicas que se ejecutaron. Se puede observar cómo los parámetros de ``Tamaño de Población'' y ``Evaluaciones Máximas'' se ajustaron para cada modo. Para todos los experimentos de esta serie se mantuvieron constantes los siguientes parámetros base: 5 carreras de entrenamiento por experimento, 200 partidas por evaluación y 8 hilos de paralelismo para los procesos de Python.
 
+\todo{Revisar parámetros finales}
+
 \begin{table}[H]
 	\centering
 	\caption{Configuraciones para la comparativa de modos de entrenamiento y salón de la fama.}
 	\label{tab:main_experiments}
 	\begin{tabular}{@{}llcccl@{}}
 		\toprule
-		\textbf{ID} & \textbf{Modo} & \textbf{Población} & \textbf{Eval.} & \textbf{Salón F.} & \textbf{Plan híbrido} \\ \midrule
-		E-1         & Fijo                        & 50                 & 1900                  & 3                         & N/A                            \\
-		E-2         & Híbrido                     & 10                 & 1000                  & 3                         & \texttt{f:0.4,c:0.2,f:0.4}     \\
-		E-3         & Coevolución                 & 10                 & 480                   & 3                         & N/A                            \\
+		\textbf{ID} & \textbf{Modo} & \textbf{Población} & \textbf{Eval.} & \textbf{Salón F.} & \textbf{Plan híbrido}      \\ \midrule
+		E-1         & Fijo          & 10                 & 500            & 3                 & N/A                        \\
+		E-2         & Híbrido       & 10                 & 500            & 3                 & \texttt{f:0.4,c:0.2,f:0.4} \\
+		E-3         & Coevolución   & 10                 & 500            & 3                 & N/A                        \\
 		\midrule
-		E-4         & Fijo                        & 50                 & 1900                  & 0                         & N/A                            \\
-		E-5         & Híbrido                     & 10                 & 1000                  & 0                         & \texttt{f:0.4,c:0.2,f:0.4}     \\
-		E-6         & Coevolución                 & 10                 & 480                   & 0                         & N/A                            \\ \bottomrule
+		E-4         & Fijo          & 10                 & 500            & 0                 & N/A                        \\
+		E-5         & Híbrido       & 10                 & 500            & 0                 & \texttt{f:0.4,c:0.2,f:0.4} \\
+		E-6         & Coevolución   & 10                 & 500            & 0                 & N/A                        \\ \bottomrule
 	\end{tabular}
 \end{table}
 
@@ -100,3 +92,5 @@ Durante toda esta memoria se ha hecho alusión a los agentes autónomos que se h
 	\item \textbf{MaxPrestigeBot}: similar a los bots anteriores, este bot se centra en maximizar su puntuación de prestigio. Para cada acción posible, evalúa cual es la que le otorga más puntos de prestigio y la ejecuta. Si no puede realizar ninguna acción que le otorgue puntos, realiza un movimiento aleatorio.
 	\item \textbf{DecisionTreeBot}: este es el único bot que no se basa en una heurística simple, sino que utiliza un árbol de decisión diseñado por un experto. Es decir, es un bot con un esquema de funcionamiento completamente opuesto al \textit{EvolutionaryBot} de este proyecto, ya que está diseñado para tomar decisiones basadas en un conjunto de reglas fijas y no evoluciona ni aprende de la experiencia. En lugar de evaluar y puntuar todos los movimientos posibles de forma unificada, el bot sigue una secuencia predefinida: primero intenta jugar las cartas de su mano, si no es posible, considera comprar cartas de la taberna, después activar un patrón, y así sucesivamente hasta encontrar una acción válida. La complejidad de este agente no reside en una función de evaluación ponderada, sino en las heurísticas específicas que gobiernan cada tipo de decisión. Por ejemplo, para decidir qué carta jugar, no elige simplemente la que da más recursos, sino que utiliza una lógica sofisticada que clasifica las cartas en mano según su potencial de combo. En ocasiones, ``sacrifica'' una carta de bajo potencial para preparar el terreno y maximizar los efectos de combo de las cartas que jugará a continuación. De forma similar, para la compra de cartas, utiliza una función heurística que valora la sinergia (favoreciendo cartas de patrones que ya posee) y la calidad general de la carta. Durante la primera fase del proyecto se estudió este bot con detalle, pues su autor claramente tenía un conocimiento profundo del juego y de las estrategias óptimas (algo que no se puede decir del autor de esta memoria). El resultado de esos estudios fueron las heurísticas específicas que el \textit{EvolutionaryBot} utiliza para evaluar la compra y uso de cartas específicas.
 \end{itemize}
+
+En cada evaluación fija, el número máximo de partidas configurado se reparte entre estos cuatro bots de referencia, ocurriendo la mitad para cada uno como P1 y la otra mitad como P2. Si por ejemplo el número fuera 200, en la evaluación del \textit{fitness} de un individuo se jugarían 50 partidas contra cada uno de los bots de referencia, 25 como P1 y 25 como P2.
