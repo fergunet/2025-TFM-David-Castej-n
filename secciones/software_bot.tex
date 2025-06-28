@@ -8,9 +8,11 @@ El comportamiento del agente se basa en una estrategia de decisión voraz con un
 
 El punto más importante este sistema es la función de evaluación, ``ScoreMove'', que calcula la idoneidad de un estado del juego. Esta función es la que ejecuta la evaluación lineal ponderada, donde se calculan las diferencias entre el estado del juego antes y después de la jugada simulada a través de un conjunto de características. Cada una de estas características se multiplica por un peso específico, y la suma (o resta, en caso de gestionar datos relativos al contrincante) de todos estos componentes da como resultado la puntuación final de la acción.
 
-La fórmula general que representa este cálculo se puede expresar de la siguiente manera:
+La fórmula general que representa este cálculo se puede expresar según la ecuación \ref{eq:puntuacion_movimiento}:
 
-$$ \text{Puntuación}(m) = \sum_{i=1}^{n} w_i \cdot \Delta f_i(E_{t+1}, E_t) $$ \label{eq:puntuacion_movimiento}
+\begin{equation}
+\text{Puntuación}(m) = \sum_{i=1}^{n} w_i \cdot \Delta f_i(E_{t+1}, E_t) \label{eq:puntuacion_movimiento}
+\end{equation}
 
 Donde $\text{Puntuación}(m)$ es el valor asignado al movimiento $m$, $n$ es el número total de características evaluadas, $w_i$ es el peso asociado a la característica $i$, y $\Delta f_i$ es la función que calcula la diferencia de valor de dicha característica entre el estado resultante $E_{t+1}$ y el estado original $E_t$. Para garantizar que la comparación entre los diferentes movimientos sea justa y reproducible, todas las simulaciones internas se realizan utilizando una semilla pseudoaleatoria constante, lo que elimina la estocasticidad de ciertos eventos del juego, como el robo de cartas de la taberna. En el siguiente pseudocódigo se muestra el bucle de evaluación que sigue el bot para cada uno de los posibles movimientos:
 

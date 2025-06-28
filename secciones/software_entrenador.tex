@@ -62,6 +62,14 @@ La configuración del algoritmo utiliza algunos de los componentes que la clase 
 	\item \textbf{Reemplazador:} Se emplea la estrategia de reemplazo por defecto, conocida como ``reemplazo $(\mu + \lambda)$''. En esta estrategia, la nueva generación se forma seleccionando a los mejores individuos del conjunto combinado de los padres de la generación actual y sus descendientes, asegurando que las mejores soluciones nunca se pierdan (como una forma de elitismo) \cite{aaron_garret_library_2025}.
 \end{itemize}
 
+A modo de resumen de la sección, en la figura \ref{fig:diagrama_algoritmo} se muestra un diagrama de flujo que ilustra el proceso del algoritmo evolutivo implementado con \textit{inspyred}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/diagrama_algoritmo.png}
+	\caption{Diagrama del algoritmo evolutivo.}
+	\label{fig:diagrama_algoritmo}
+\end{figure}
 
 \section{El salón de la fama} \label{sec:salon_fama}
 
@@ -173,6 +181,17 @@ Como se ha descrito, los modos de evaluación fijo y de coevolución operan de f
     \end{itemize}
 \end{itemize}
 
-Este pequeño cálculo demuestra que, a igualdad de tamaño de población, el modo de coevolución es aproximadamente el doble de costoso computacionalmente que el modo fijo. Esta diferencia fundamental justifica por qué en el diseño de los experimentos se ajustan parámetros como el tamaño de la población y el número máximo de evaluaciones para cada modo, con el fin de permitir que cada configuración se ejecute durante un tiempo total comparable y así poder realizar una comparación justa de su eficacia.
+Este pequeño cálculo demuestra que, a igualdad de tamaño de población, el modo de coevolución realiza aproximadamente el doble de partidas que el modo fijo. Aunque esto puede parecer un coste elevado, en el siguiente capítulo se verá que realmente las diferencias en el tiempo de entrenamiento no son tan significativas, sobretodo al utilizar el salón de la fama.
+
+\section{Resumen de la arquitectura} \label{sec:resumen_architectura}
+
+Para resumir la arquitectura del sistema de entrenamiento evolutivo, se ha diseñado un diagrama que ilustra los componentes principales y sus interacciones. La figura \ref{fig:diagrama_arquitectura} muestra cómo el entrenador se comunica con el simulador a través de subprocesos y este le devuelve los resultados de las partidas. Además, trata de representar las conexiones entre el entrenador, la librería \textit{inspyred} y la población de individuos, mostrando como el \textit{EvolutionaryBot} desarrollado en este proyecto los utiliza para guiar su función de evaluación.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{img/diagrama_arquitectura.png}
+	\caption{Diagrama de la arquitectura del proyecto.}
+	\label{fig:diagrama_arquitectura}
+\end{figure}
 
 Este capítulo concluye el objetivo \textbf{OG3}, que consistía en desarrollar un programa de optimización en Python para ajustar los pesos de la función de fitness del agente, implementando y comparando dos estrategias principales: algoritmos coevolutivos y entrenamiento supervisado contra agentes de referencia de ``Scripts of Tribute''.
