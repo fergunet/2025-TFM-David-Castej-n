@@ -16,3 +16,11 @@ Aunque en este trabajo se ha puesto especial atención a los oponentes que se en
 Otra forma de mejorar el rendimiento del agente podría ser determinando los mazos más efectivos a ser jugados por el agente. Durante todo este proyecto se ha utilizado un selector aleatorio de mazos, lo cual es lo más indicado para mejorar la exploración durante el entrenamiento; pero una vez se tiene el conjunto de pesos final, sería un buen momento para afinar la potencia existente lo máximo posible. Para ello, simplemente se tendrían que analizar un gran número de partidas y ver cuáles son los mazos que más victorias consiguen. Con esta información, se podría implementar un selector más sofisticado que elija el mazo con la mayor probabilidad de ganar en cada partida.
 
 Por último, un cambio a un nivel más holístico sería la refactorización del agente y el entrenador en un único lenguaje de programación. Aunque la idea de utilizar variables de entorno y lecturas de la salida estándar es una técnica perfectamente válida para la versión actual del proyecto, es posible que la unificación de ambos componentes bajo Python permita mejorar el rendimiento del entrenamiento. Para ello, se podría utilizar la implementación del método de comunicación ``gRPC'' que se añadió a SoT recientemente, lo que permitiría que toda la lógica del agente y el entrenador se ejecutara bajo un único programa orquestador. Este enfoque dejaría al GameRunner únicamente como un componente de entrada y salida de datos mediante microservicios. Cambiar la arquitectura base permitiría que el entrenador y el agente compartieran objetos y memoria directamente, abriendo la puerta al uso de otras técnicas más avanzadas como el aprendizaje por refuerzo profundo, que requiere de una alta transferencia de datos del entorno entre el agente y el GameRunner.
+
+\vspace{30pt}
+
+El código fuente de este proyecto se encuentra en el repositorio de Github:
+
+\begin{center}
+\url{https://github.com/Silver812/TFM}
+\end{center}
